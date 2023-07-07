@@ -1,0 +1,21 @@
+{% extends 'teacher/layout.html' %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{%static 'teacher/css/home.css'%}">{% endblock %}
+{% block title %} Головна сторінка {% endblock %}
+
+{% block link %}
+    {% if head_clas != 'Немає' %}
+        <a href="{%url 'teacher_rozk'%}"><li><i class="fa fa-calendar" aria-hidden="true"></i> Розклад </li></a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <img src='{% static "teacher/img/" %}{{data.image}}'>
+        <h1>{{ data.first_name }} {{ data.last_name }}</h1>
+        <div class="pred">
+            <p>Предмети: {{ data.predmet }}</p>
+            <p>Керівник класу: {{ data.head_clas }}</p>
+        </div>
+    </div>
+{% endblock %}

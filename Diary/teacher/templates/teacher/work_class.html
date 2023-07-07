@@ -1,0 +1,25 @@
+{% extends 'teacher/layout.html' %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{%static 'teacher/css/work_class.css'%}">{% endblock %}
+{% block title %} Домашнє завдання {% endblock %}
+{% block link %}{% if head_clas != 'Немає' %}
+<a href="{%url 'teacher_rozk'%}"><li><i class="fa fa-calendar" aria-hidden="true"></i> Розклад </li></a>
+{% endif %}{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1> Список домашніх завдань {{clas}} </h1>
+    <table class="timetable">
+        <tr class="top"> <th>Предмет</th> <th> Завдання </th>  <th> Змінити </th> </tr>
+        {% for key, value in works.items %}
+        <form method="post">{% csrf_token %}
+            <tr>
+                <th>{{key}}</th>
+                <th><div class="work"><input type="text" name="work" required id="id_work" value="{{value}}"></div></th>
+                <th><input type="submit" name="{{key}}" value="Змінити"></th>
+            </tr>
+        </form>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

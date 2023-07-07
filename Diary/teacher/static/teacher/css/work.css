@@ -1,0 +1,33 @@
+.features {
+    float: left;
+    color: #fff;
+    text-align: center;
+    width: 75%;
+}
+.features h1 {
+    font-size: 30px;
+    max-width: 550px;
+    margin: 20px auto;
+}
+table {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+}
+
+.timetable th,
+.timetable td {
+    border: 2px solid #eb5959;
+    padding:5px;
+}
+
+.timetable th:nth-child(1) {
+    width: 200px;
+}
+
+.timetable th:nth-child(2),
+.timetable td:nth-child(2) {
+    width: 200px;
+}

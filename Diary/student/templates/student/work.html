@@ -1,0 +1,17 @@
+{% extends 'student/layout.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{%static 'student/css/work.css'%}">{% endblock %}
+{% block title %} Завдання {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1> Домашнє завдання {{clas}} класу </h1>
+        <table class="timetable">
+            <tr class="top"> <th>Предмет</th>     <th> Завдання </th>   </tr>
+            {% for key, value in works.items %}
+                <tr> <th>{{key}}:</th> <th>{{value}}</th> </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

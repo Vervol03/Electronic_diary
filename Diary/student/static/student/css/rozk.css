@@ -1,0 +1,52 @@
+.features {
+    float: left;
+    color: #fff;
+    text-align: center;
+    width: 75%;
+}
+.features h1 {
+    font-size: 30px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+
+.timetable {
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background-color: #4d4d4d;
+}
+
+.timetable th,
+.timetable td {
+    border: 2px solid #eb5959;
+    text-align: center;
+    padding: 2px;
+    color: #fff;
+}
+
+.timetable th {
+    background-color: #181818;
+}
+
+.timetable td {
+    background-color: #2c2c2c;
+}
+
+.timetable th:nth-child(1) {
+    width: 150px;
+}
+
+.timetable th:nth-child(2),
+.timetable td:nth-child(2) {
+    width: 80px;
+}
+
+.timetable th:nth-child(3),
+.timetable td:nth-child(3) {
+    width: 250px;
+}

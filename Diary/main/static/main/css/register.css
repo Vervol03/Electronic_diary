@@ -1,0 +1,60 @@
+body { background: #2c2c2c;}
+
+.features {
+    color: #fff;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.features h1 {
+    font-size: 40px;
+    max-width: 700px;
+    margin: 20px auto;
+    margin-bottom: 30px;
+}
+
+input {
+    max-width: 265px;
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.vhod input{margin-top: 30px;}
+
+.error p{
+    font-size: 13px;
+    max-width: 400px;
+    color: #eb5959;
+    margin: 0px auto;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 20px #0066cc;
+}
+
+input:hover {border-color: #999999;}
+
+input:disabled {
+    background-color: #f2f2f2;
+    cursor: not-allowed;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+    color: #fff
+}
+
+table th:first-child {float: left}
+th {padding: 10px;font-size: 20px}
+a {color: #fff; font-size: 15px;}
+a:hover {
+    color: #eb5959;
+    transform: scale(1.05);
+}

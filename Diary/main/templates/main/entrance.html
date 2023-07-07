@@ -1,0 +1,29 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Вхід</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{%static 'main/css/register.css'%}">
+</head>
+<body>
+    <div class="features">
+        <h1>Вхід</h1>
+        <form method="POST"> {% csrf_token %}
+        <table> {{ form }} </table>
+        <div class="error">
+        {% if login == True %}
+                <p> <i class="fa fa-info-circle" aria-hidden="true"></i> Такого логину не існуе! Повторіть введення.</p>
+        {% endif %}
+        {% if passw == True %}
+              <p><i class="fa fa-info-circle" aria-hidden="true"></i> Невірно введенний пароль! Повторіть введення.</p>
+        {% endif %}
+        </div>
+        <div class="vhod"><input style="vhod" type="submit" value="Увійти" ></div>
+        </form>
+        <a href="{%url 'register'%}"><i class="fa fa-registered" aria-hidden="true"></i> Зареєструватися як Учень </a><br>
+        <a href="{%url 'register_teacher'%}"><i class="fa fa-registered" aria-hidden="true"></i> Зареєструватися як Вчите </a>
+    </div>
+</body>
+</html>

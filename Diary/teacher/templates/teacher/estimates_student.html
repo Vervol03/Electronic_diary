@@ -1,0 +1,26 @@
+{% extends 'teacher/layout.html' %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{%static 'teacher/css/estimates_clas.css'%}">{% endblock %}
+{% block title %} Оцінки {% endblock %}
+{% block link %}{% if head_clas != 'Немає' %}
+<a href="{%url 'teacher_rozk'%}"><li><i class="fa fa-calendar" aria-hidden="true"></i> Розклад </li></a>
+{% endif %}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1> Оцінки {{first}} {{last}} </h1>
+        <table class="timetable">
+            <tr class="top"> <th>Предмет</th> <th>Оцінки</th> <th>Змінити</th> </tr>
+            {% for key, el in estimates.items %}
+                <tr>
+                  <th> {{key}} </th>
+                  <form method="post">
+                  {% csrf_token %}
+                      <th> <input type="text" name="estimate" required id="id_estimate" value="{{el}}"> </th>
+                      <th><input type="submit" name="{{key}}" value="Змінити"></th>
+                  </form>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

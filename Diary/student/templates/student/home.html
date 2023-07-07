@@ -1,0 +1,20 @@
+{% extends 'student/layout.html' %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{%static 'student/css/home.css'%}">{% endblock %}
+{% block title %} Головна сторінка {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <img src='{% static "student/img/" %}{{data.image}}'>
+        <h1>{{ data.first_name }} {{ data.last_name }}</h1>
+        <p>Клас: {{ data.clas }}</p>
+        <table class="timetable">
+            <tr class="top"> <th>Предмет</th> <th colspan="{{max}}">Оцінки</th> <th>Рейтинг</th> </tr>
+            {% for key, value in estimates.items %}
+                <tr>
+                    <th>{{key}}</th>{% for el in value %}<div class="col"><th>{{el}}</th></div>{% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'student/layout.html' %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{%static 'student/css/rozk.css'%}">{% endblock %}
+{% block title %} Розклад {% endblock %}
+{% block content %}
+	<div class="features">
+	<h1> Розклад {{class}} класу</h1>
+	<div class="table-container">
+        <table class="timetable" border="2">
+			<tr><th>День тижня</th> <th>Час</th> <th>Предмет</th> </tr>
+			<tr> <th rowspan="{{rozk.lenMonday}}">Понеділок</th> </tr>
+			{% for key, value in rozk.Monday.items %}
+				<tr> <td>{{key}}</td><td>{{value}}</td> </tr>
+			{% endfor %}
+			<tr> <th rowspan="{{rozk.lenTuesday}}">Вівторок</th> </tr>
+			{% for key, value in rozk.Tuesday.items %}
+				<tr> <td>{{key}}</td><td>{{value}}</td> </tr>
+			{% endfor %}
+			<tr> <th rowspan="{{rozk.lenWednesday}}">Середа</th> </tr>
+			{% for key, value in rozk.Wednesday.items %}
+				<tr> <td>{{key}}</td><td>{{value}}</td> </tr>
+			{% endfor %}
+			<tr> <th rowspan="{{rozk.lenThursday}}">Четверг</th> </tr>
+			{% for key, value in rozk.Thursday.items %}
+				<tr> <td>{{key}}</td><td>{{value}}</td> </tr>
+			{% endfor %}
+			<tr> <th rowspan="{{rozk.lenFriday}}">П'ятниця</th> </tr>
+			{% for key, value in rozk.Friday.items %}
+				<tr> <td>{{key}}</td><td>{{value}}</td> </tr>
+			{% endfor %}
+		</table>
+    </div></div>
+{% endblock %}

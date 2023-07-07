@@ -1,0 +1,61 @@
+{% extends 'teacher/layout.html' %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{%static 'teacher/css/rozk.css'%}">{% endblock %}
+{% block title %} Розклад {% endblock %}
+{% block link %}{% if head_clas != 'Немає' %}
+<a href="{%url 'teacher_rozk'%}"><li><i class="fa fa-calendar" aria-hidden="true"></i> Розклад </li></a>
+{% endif %}{% endblock %}
+
+{% block content %}
+	<div class="features">
+	<h1> Розклад {{head_clas}} класу</h1>
+        {% if check == True%}
+            <div class="error"><p>Предмету "{{predmet}}" немає у {{head_clas}} класу або ви ввели його некоректно!</p></div>
+        {% endif %}
+	<div class="table-container">
+        <table class="timetable">
+			<tr><th>День тижня</th> <th>Предмет</th> <th>Змінити</th></tr>
+			<tr>
+                <th>Понеділок</th>
+                <form method="post">
+                    {% csrf_token %}
+                    <td><textarea rows="{{rozklad_len.Monday}}" name="day">{{rozklad.Monday}}</textarea></td>
+                    <td><input type="submit" name="Monday" value="Змінити"></td>
+                </form>
+            </tr>
+			<tr>
+                <th>Вівторок</th>
+                <form method="post">
+                    {% csrf_token %}
+                    <td><textarea rows="{{rozklad_len.Tuesday}}" name="day">{{rozklad.Tuesday}}</textarea></td>
+                    <td><input type="submit" name="Tuesday" value="Змінити"></td>
+                </form>
+            </tr>
+			<tr>
+                <th>Середа</th>
+                <form method="post">
+                    {% csrf_token %}
+                    <td><textarea rows="{{rozklad_len.Wednesday}}" name="day">{{rozklad.Wednesday}}</textarea></td>
+                    <td><input type="submit" name="Wednesday" value="Змінити"></td>
+                </form>
+            </tr>
+			<tr>
+                <th>Четверг</th>
+                <form method="post">
+                    {% csrf_token %}
+                    <td><textarea rows="{{rozklad_len.Thursday}}" name="day">{{rozklad.Thursday}}</textarea></td>
+                    <td><input type="submit" name="Thursday" value="Змінити"></td>
+                </form>
+            </tr>
+			<tr>
+                <th>П'ятниця</th>
+                <form method="post">
+                    {% csrf_token %}
+                    <td><textarea rows="{{rozklad_len.Friday}}" name="day">{{rozklad.Friday}}</textarea></td>
+                    <td><input type="submit" name="Friday" value="Змінити"></td>
+                </form>
+            </tr>
+		</table>
+    </div>
+	</div>
+{% endblock %}
